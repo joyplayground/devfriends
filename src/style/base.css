@@ -1,0 +1,9 @@
+@import-normalize;
+
+div, p {
+    color: #33345;
+    font-size: 3.25vw;
+}
+.flex {
+    display: flex;
+}

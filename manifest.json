@@ -1,0 +1,16 @@
+{
+    "short_name": "Developer Good Friends",
+    "name": "Dev Friends",
+    "description": "开发人员效率工具集合要你命3000",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "type": "image/x-img",
+            "sizes": "128x128 64x64 32x32 16x16"
+        }
+    ],
+    "start_url": "/pages",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+}
