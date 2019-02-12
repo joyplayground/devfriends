@@ -14,14 +14,15 @@ const isProd = mode === 'production';
 const output_dir = path.join(__dirname, 'dist');
 
 const PORT = 8000;
-
+const DEVELOPMENT_HOST = 'localhost';
+const PRODUCTIION_HOST = 'honchy.cn';
 module.exports = {
     mode: mode,
     entry: App.entry,
     output: {
         path: output_dir,
         filename: isProd ? '[name]@[chunkhash].js' : '[name].js',
-        publicPath: isProd ? 'https://honchy.cn/' : 'http://localhost:' + PORT + '/'
+        publicPath: isProd ? `https://${PRODUCTIION_HOST}/` : `http://${DEVELOPMENT_HOST}:${PORT}/`
     },
     module: {
         rules: [
@@ -42,9 +43,13 @@ module.exports = {
     },
     devtool: 'cheap-source-map',
     devServer: {
-        contentBase: [output_dir, __dirname],
+        contentBase: [output_dir, path.join(__dirname, 'src', 'assets'), __dirname],
         port: PORT,
-        hot: true
+        allowedHosts: [
+            'dev.qunar.com',
+            'localhost'
+        ],
+        hot: false
     },
     resolve: {
         alias: {
@@ -75,8 +80,15 @@ module.exports = {
                 default: false,
                 common: {
                     name: 'common',
-                    test: /\.js$/,
-                    minChunks: 2,
+                    test: function(module, chunks) {
+                        let src = module.resource;
+                        let isNodeModule = /\/node_modules\//.test(src);
+                        let isCommon = /\/src\/common\//.test(src);
+                        let isScript = /\.js$/.test(src);
+
+                        return isScript && (isNodeModule || isCommon);
+                    },
+                    minChunks: 1,
                     priority: 1,
                     reuseExistingChunk: true
                 }

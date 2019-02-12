@@ -4,7 +4,7 @@
   "description": "常用 webpack 配置模板",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development npx webpack-dev-server --hot",
+    "start": "NODE_ENV=development npx webpack-dev-server",
     "build": "npx webpack",
     "build:dev": "NODE_ENV=development npx webpack"
   },
