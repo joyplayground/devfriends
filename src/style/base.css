@@ -1,9 +1,5 @@
 @import-normalize;
 
-div, p {
-    color: #333455;
-    font-size: 3.25vw;
-}
-.flex {
-    display: flex;
+.app-root {
+    position: relative;
 }

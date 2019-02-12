@@ -21,8 +21,11 @@
   "homepage": "https://github.com/honchy/webpack_template#readme",
   "devDependencies": {
     "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.0.1",
@@ -48,6 +51,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "@babel/runtime": "^7.2.0"
+    "@babel/runtime": "^7.2.0",
+    "react": "^16.8.1",
+    "react-desktop": "^0.3.8",
+    "react-dom": "^16.8.1"
   }
 }

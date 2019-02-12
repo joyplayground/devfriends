@@ -1,16 +1,22 @@
-import './index.css';
-import { formatter } from '@common/date';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Window, TitleBar, Box, Text } from 'react-desktop/macOs';
 import '@common/sw-setup';
+import './index.css';
 
-console.log('hahaha hehe', formatter(new Date()));
+class App extends Component {
+    render() {
+        return (
+            <Window
+                chrome
+                height="300px"
+                padding="10px"
+            >
+                <TitleBar title="hello" controls isFullScreen={true} />
+                <Text>Hello World</Text>
+            </Window>
+        )
+    }
+}
 
-let div = document.createElement('div');
-div.innerHTML = `
-<div>
-    <a href="/pages/home/index.html">Home 123456789</a>
-</div>
-<div>
-    <a href="/pages/list/index.html">List Link</a>
-</div>`;
-
-document.body.append(div);
+ReactDOM.render(<App />, document.querySelector('.app-root'));
